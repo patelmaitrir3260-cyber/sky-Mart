@@ -75,7 +75,7 @@ let Price=total.toFixed(2);
 
         <div className='min-h-screen grid grid-cols-4 gap-2'>
 
-          { items.filter((val) =>  val.title.toLowerCase().includes(searching?.toLowerCase() || ""))
+          { (searchitem==='All categories')&& items.filter((val) =>  val.title.toLowerCase().includes(searching?.toLowerCase() || ""))
     .map((val) => {
       console.log(val);
       
