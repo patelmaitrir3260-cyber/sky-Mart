@@ -11,6 +11,7 @@ const Shope = () => {
     
     let {items,setItems,showCart,setShowCart,cartItem}=useContext(Myshope);
         const [searchitem, setSearchitem] = useState("All categories")
+        const [searching, setSearching] = useState(null)
      let getData= async()=>{
        let res= await axios('https://fakestoreapi.com/products')
        console.log(res.data);
@@ -41,7 +42,17 @@ let Price=total.toFixed(2);
         <div className=' w-full grid grid-cols-2 gap-2  p-3 relative'>
            <div className='flex  gap-2 border border-gray-600 bg-gray-800 p-2 rounded-xl '>
             <Search />
-             <input className='border-0' type="text" placeholder='Search products....' />
+             <input 
+             onChange={(e)=>
+              {
+               let data=e.target.value;
+               setSearching(data);
+               console.log(searching);
+               
+              }
+
+             }
+              className='border-0' type="text" placeholder='Search products....' />
            </div>
           <div >
              <select
@@ -63,6 +74,16 @@ let Price=total.toFixed(2);
 
 
         <div className='min-h-screen grid grid-cols-4 gap-2'>
+
+          { items.filter((val) =>  val.title.toLowerCase().includes(searching?.toLowerCase() || ""))
+    .map((val) => {
+      console.log(val);
+      
+       const iscart=cartItem.find((elem)=>{
+                   return val.id===elem.id
+                })
+     return  <ProductCard key={val.id} product={val} iscart={iscart} />
+    })}
              {(searchitem ==="All categories")&& items.map((val)=>{
                 const iscart=cartItem.find((elem)=>{
                    return val.id===elem.id
