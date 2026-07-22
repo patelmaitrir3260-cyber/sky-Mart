@@ -1,0 +1,31 @@
+@import "tailwindcss";
+#box{
+    background:#23280F;
+    color: #C8F400;
+}
+#box2{
+    background-color: #281F10;
+    color: #FBBF24
+}
+#box3{
+    background-color: #151C28;
+    color:#314F77 ;
+}
+#box1{
+    background-color: #201828;
+    color:#C084FC ;
+}
+#box-4{
+    background-color: #23280F;
+    border-color: #343C0E;
+   
+}
+#box5{
+    background-color: rgba(244, 104, 4, 0.226);
+    border: none;
+    color: chocolate;
+}
+#btn{
+    background-color: #132B1C;
+    color:#4ADE80 ;
+}
